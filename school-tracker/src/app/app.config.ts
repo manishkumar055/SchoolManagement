@@ -34,6 +34,9 @@ export const appConfig: ApplicationConfig = {
 
     // Angular Material Dialog defaults
     { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }, provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }),
   ]
 };
