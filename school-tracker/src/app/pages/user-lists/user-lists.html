@@ -1,0 +1,46 @@
+<div class="page">
+
+  <!-- Header -->
+   <div class="user-list-header">
+       <h2 class="title">
+        <button class="back-btn" (click)="goBack()">⬅</button>
+         {{ userType() | titlecase }} List
+       </h2>
+       <input matInput class="search-input" placeholder="Search..." />
+   </div>
+
+  <!-- Search (future ready) -->
+
+  <!-- Users -->
+  @for (user of users(); track user.id) {
+    <mat-card (click)="gotoUserDetailsPage(user)" class="user-card p-8">
+
+      <div class="row">
+
+        <!-- Avatar -->
+        <div class="avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+
+        <!-- Info -->
+        <div class="info">
+          <h3>{{ user.name }}</h3>
+
+          @if (user.class) {
+            <p>Class {{ user.class }}</p>
+          }
+
+          <p>📞 {{ user.phone }}</p>
+        </div>
+
+        <!-- Status -->
+        <div class="status" [class.active]="user.status === 'ACTIVE'">
+          {{ user.status }}
+        </div>
+
+      </div>
+
+    </mat-card>
+  }
+
+</div>

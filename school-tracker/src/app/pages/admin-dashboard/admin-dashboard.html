@@ -1,30 +1,30 @@
 <div class="page">
 
-    <h2 class="page-title">🏫 Admin Dashboard</h2>
+  <h2 class="page-title">🏫 Admin Dashboard</h2>
 
-    <div class="stats-grid">
+  <div class="stats-grid">
 
-        @for (card of dashboardCards; track card.title) {
-        <mat-card class="stat-card" (click)="open(card.route)">
+    @for (card of dashboardCards; track card.title) {
+    <mat-card class="stat-card" (click)="navigateUserList(card.route)">
 
-            <div class="icon">{{ card.icon }}</div>
+      <div class="icon">{{ card.icon }}</div>
 
-            <div class="content">
-                <div class="title">{{ card.title }}</div>
-                <div class="value">{{ card.value }}</div>
-            </div>
+      <div class="content">
+        <div class="title">{{ card.title }}</div>
+        <div class="value">{{ card.value }}</div>
+      </div>
 
-        </mat-card>
-        }
+    </mat-card>
+    }
 
-    </div>
+  </div>
 
-    <!-- Growth Section -->
-<h3 class="section-title">📈 School Growth Overview</h3>
+  <!-- Growth Section -->
+  <h3 class="section-title">📈 School Growth Overview</h3>
 
-<div class="growth-grid">
+  <div class="growth-grid">
 
-  @for (item of growthStats; track item.label) {
+    @for (item of growthStats; track item.label) {
     <mat-card class="growth-card">
 
       <div class="growth-header">
@@ -32,9 +32,7 @@
         <div class="growth-value">{{ item.value }}%</div>
       </div>
 
-      <mat-progress-bar
-        mode="determinate"
-        [value]="item.value">
+      <mat-progress-bar mode="determinate" [value]="item.value">
       </mat-progress-bar>
 
       <div class="growth-footer">
@@ -42,9 +40,9 @@
       </div>
 
     </mat-card>
-  }
+    }
 
-</div>
+  </div>
 
 
 </div>
