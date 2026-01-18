@@ -1,0 +1,50 @@
+<div class="page">
+
+    <h2 class="page-title">🏫 Admin Dashboard</h2>
+
+    <div class="stats-grid">
+
+        @for (card of dashboardCards; track card.title) {
+        <mat-card class="stat-card" (click)="open(card.route)">
+
+            <div class="icon">{{ card.icon }}</div>
+
+            <div class="content">
+                <div class="title">{{ card.title }}</div>
+                <div class="value">{{ card.value }}</div>
+            </div>
+
+        </mat-card>
+        }
+
+    </div>
+
+    <!-- Growth Section -->
+<h3 class="section-title">📈 School Growth Overview</h3>
+
+<div class="growth-grid">
+
+  @for (item of growthStats; track item.label) {
+    <mat-card class="growth-card">
+
+      <div class="growth-header">
+        <div class="growth-title">{{ item.label }}</div>
+        <div class="growth-value">{{ item.value }}%</div>
+      </div>
+
+      <mat-progress-bar
+        mode="determinate"
+        [value]="item.value">
+      </mat-progress-bar>
+
+      <div class="growth-footer">
+        Compared to last year
+      </div>
+
+    </mat-card>
+  }
+
+</div>
+
+
+</div>

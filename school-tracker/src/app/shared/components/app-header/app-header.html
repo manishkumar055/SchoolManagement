@@ -1,0 +1,68 @@
+    <!-- Profile Card -->
+    <mat-card class="profile-card">
+        <div class="profile-row">
+            <!-- <mat-icon class="avatar">account_circle</mat-icon> -->
+
+            <!-- Profile Image -->
+            <!-- <img alt="Student Photo" /> -->
+
+            @if(!photoConfirmed) {
+
+                @if (openCameraTOClickPicture) {
+                    <button  (click)="startCamera()">Open Camera</button>
+                } @else {
+                    <div class="camera-container">
+        
+                        <!-- Live Camera Feed -->
+                        <div class="video-wrapper" *ngIf="!photoCaptured">
+                            <video #video autoplay playsinline class="camera-feed"></video>
+                        </div>
+        
+                        <!-- Captured Photo Preview -->
+                        <div class="photo-preview" *ngIf="photoCaptured">
+                            <img [src]="studentPhoto" alt="Captured Photo" class="avatar">
+                        </div>
+        
+                        <!-- Capture Button -->
+                        <button *ngIf="!photoCaptured" mat-fab color="primary" class="capture-btn" (click)="capturePhoto()">
+                            <mat-icon>photo_camera</mat-icon>
+                        </button>
+        
+                        <!-- Confirm / Retake Buttons -->
+                        <div *ngIf="photoCaptured" class="action-buttons">
+                            <button mat-raised-button color="primary" (click)="confirmPhoto()">✅ Confirm</button>
+                            <button mat-raised-button color="warn" (click)="startCamera()">🔄 Retake</button>
+                        </div>
+        
+                    </div>
+                }
+                
+            } @else {
+
+                <div class="profile-info full-width flex-between p-8">
+                    <div class="photo-preview" *ngIf="photoCaptured">
+                        <div class="avatar-wrapper">
+                            <img [src]="studentPhoto" alt="Captured Photo" class="avatar">
+                    
+                            <!-- Edit/Pencil Icon -->
+                            <button mat-mini-fab color="accent" class="edit-btn" (click)="startCamera()">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>{{ student().name }}</h2>
+                        <p>Class {{ student().class }} Roll {{ student().roll }}</p>
+    
+                    </div>
+                    <div>
+                        <span class="status" [class.inside]="student().status === 'INSIDE'">
+                            🟢 Inside School
+                        </span>
+                    </div>
+                </div>
+            }
+            
+            
+        </div>
+    </mat-card>

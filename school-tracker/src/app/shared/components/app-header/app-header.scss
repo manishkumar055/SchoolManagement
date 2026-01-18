@@ -1,0 +1,76 @@
+/* Profile */
+.profile-card {
+  border-radius: 14px;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  font-size: 48px;
+}
+
+.profile-info h2 {
+  margin: 0;
+}
+
+.profile-info p {
+  margin: 2px 0;
+  color: gray;
+}
+
+.status {
+  font-size: 13px;
+}
+
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; // optional for larger screens
+  margin: 0 auto;
+  position: relative;
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; // 4:3 aspect ratio; change to 56.25% for 16:9
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 2px solid #2196f3;
+  margin-bottom: 16px;
+}
+
+.camera-feed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // keeps aspect ratio and fills container
+}
+
+.capture-btn {
+  position: relative;
+  bottom: 0;
+  z-index: 10;
+  margin-bottom: 8px;
+}
+
+.photo-preview {
+  margin-top: 12px;
+}
+
+.photo-preview .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2196f3;
+}

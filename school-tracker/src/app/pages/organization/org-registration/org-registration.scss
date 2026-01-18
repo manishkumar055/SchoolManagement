@@ -1,0 +1,85 @@
+.org-registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    min-height: 100vh;
+}
+
+.registration-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+}
+
+.full-width-btn {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.user-role {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.role-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin-bottom: 10px;
+
+    mat-button-toggle {
+        flex: 1; // each button takes equal space
+        text-align: center;
+        margin-right: 8px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.full-width-btn {
+  width: 100%;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}

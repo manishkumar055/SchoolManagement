@@ -1,0 +1,121 @@
+<div class="org-registration-container">
+    <mat-card class="registration-card">
+        <h2>{{ title }} </h2>
+        
+        <ng-container *ngIf="!showLogin" [ngTemplateOutlet]="registration"></ng-container>
+        <ng-container *ngIf="showLogin" [ngTemplateOutlet]="login"></ng-container>
+
+        <span>
+            Don't have an account?
+            <a href="" (click)="showLogin = !showLogin">{{showLogin ? 'Register Now' : 'Login'}}</a>
+        </span>
+        
+        <!-- Example toggle button -->
+        <!-- <button mat-button (click)="showRegistration = !showRegistration">
+            {{ showRegistration ? 'Go to Login' : 'Register Organization' }}
+        </button> -->
+
+    </mat-card>
+</div>
+
+
+<ng-template #registration>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+        <mat-button-toggle-group formControlName="role" appearance="legacy" class="role-toggle"
+            aria-label="Role Selection" exclusive>
+
+            <mat-button-toggle value="student">Student</mat-button-toggle>
+            <mat-button-toggle value="staff">Staff</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Organization Name</mat-label>
+            <input matInput formControlName="orgName" placeholder="Enter organization name">
+            <mat-error *ngIf="registrationForm.get('orgName')?.hasError('required')">
+                Organization Name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Admin Name</mat-label>
+            <input matInput formControlName="adminName" placeholder="Enter admin name">
+            <mat-error *ngIf="registrationForm.get('adminName')?.hasError('required')">
+                Admin Name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Admin Email</mat-label>
+            <input matInput formControlName="adminEmail" placeholder="Enter email">
+            <mat-error *ngIf="registrationForm.get('adminEmail')?.hasError('required')">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('adminEmail')?.hasError('email')">
+                Enter a valid email
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Enter password">
+            <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+                Password is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('password')?.hasError('minlength')">
+                Minimum 6 characters
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPassword" placeholder="Confirm password">
+            <mat-error *ngIf="registrationForm.hasError('passwordMismatch')">
+                Passwords do not match
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="full-width-btn">
+            Register Organization
+        </button>
+    </form>
+</ng-template>
+
+<ng-template #login>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <mat-button-toggle-group formControlName="role" appearance="legacy" class="role-toggle"
+            aria-label="Role Selection" exclusive>
+
+            <mat-button-toggle value="student">Student</mat-button-toggle>
+            <mat-button-toggle value="staff">Staff</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput placeholder="Enter mobile number" formControlName="mobile" type="tel">
+            <mat-error *ngIf="loginForm.get('mobile')?.hasError('required')">
+                Mobile number is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('mobile')?.hasError('pattern')">
+                Enter a valid 10-digit mobile number
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password" formControlName="password" type="password">
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+                Password must be at least 6 characters
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="full-width-btn">
+            Login
+        </button>
+    </form>
+</ng-template>

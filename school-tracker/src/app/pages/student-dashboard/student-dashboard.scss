@@ -1,0 +1,99 @@
+.page {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.inside {
+  color: green;
+}
+
+/* Today grid */
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.mini-card {
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions button {
+  width: 100%;
+}
+
+/* History */
+.history-card {
+  border-radius: 14px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.history-card {
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+.table-container {
+  overflow-x: auto; /* horizontal scroll on small screens */
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 12px;
+}
+
+.mat-cell {
+  padding: 12px;
+  font-size: 14px;
+}
+
+.mat-row:nth-child(even) {
+  background-color: #fafafa; /* striped rows */
+}
+
+.mat-row:hover {
+  background-color: #e3f2fd; /* hover effect */
+}
+
+.event-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Badge colors by event type */
+.event-badge.sports { background-color: #4caf50; }       /* green */
+.event-badge.academic { background-color: #2196f3; }     /* blue */
+.event-badge.cultural { background-color: #ff9800; }     /* orange */
+.event-badge.meeting { background-color: #9c27b0; }      /* purple */
+.event-badge.celebration { background-color: #f44336; }  /* red */
+
+
