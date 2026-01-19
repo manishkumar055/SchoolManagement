@@ -47,12 +47,9 @@ export class OrgRegistrationComponent {
     return password === confirm ? null : { passwordMismatch: true };
   }
 
-  onSubmit() {
+  onSubmit(formValue: any) {
     // if (this.registrationForm.valid) {
-    const formValue = this.registrationForm.value;
     if (true) {
-      const data = this.registrationForm.value;
-      console.log('Organization Registration Data:', data);
 
       // TODO: Call backend API here using HttpClient
       // Example: this.http.post('/api/org/register', data)

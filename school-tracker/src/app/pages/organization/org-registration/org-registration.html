@@ -20,7 +20,7 @@
 
 
 <ng-template #registration>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
 
         <mat-button-toggle-group formControlName="role" appearance="legacy" class="role-toggle"
             aria-label="Role Selection" exclusive>
@@ -83,7 +83,7 @@
 
 <ng-template #login>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
 
         <mat-button-toggle-group formControlName="role" appearance="legacy" class="role-toggle"
             aria-label="Role Selection" exclusive>
